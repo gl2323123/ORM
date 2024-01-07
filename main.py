@@ -17,13 +17,13 @@ session = Session()
 
 data = json.loads(json_data)
 
-for record in data:
+for ali in data:
     model = {
         'publisher': Publisher,
         'shop': Shop,
         'book': Book,
         'stock': Stock,
         'sale': Sale,
-    }[record.get('model')]
-    session.add(model(id=record.get('pk'), **record.get('fields')))
+    }[ali.get('model')]
+    session.add(model(id=ali.get('pk'), **ali.get('fields')))
 session.commit()
