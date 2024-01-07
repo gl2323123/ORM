@@ -44,7 +44,8 @@ class Sale(Base):
     id_stock = sq.Column(sq.Integer, sq.ForeignKey("stock.id"), nullable=False)
     count = sq.Column(sq.Integer, nullable=False)
 
-    stock3 = relationship(Stock, backref="sale")
+    stock = relationship(Stock, backref="sale")
+
 
 def create_tables(engine):
     Base.metadata.drop_all(engine)
