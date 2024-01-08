@@ -27,3 +27,15 @@ for ali in data:
     }[ali.get('model')]
     session.add(model(id=ali.get('pk'), **ali.get('fields')))
 session.commit()
+
+borz_id = input('ID Автора: ')
+
+
+borz = session.query(Book.title, Shop.name, Stock.count, Sale.date_sale).join(Publisher).join(Stock).join(Shop).join(Sale).filter(Publisher.id == borz_id).all()
+
+
+
+
+print(borz)
+
+session.close()
