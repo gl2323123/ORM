@@ -33,9 +33,13 @@ borz_id = input('ID Автора: ')
 
 borz = session.query(Book.title, Shop.name, Stock.count, Sale.date_sale).join(Publisher).join(Stock).join(Shop).join(Sale).filter(Publisher.id == borz_id).all()
 
-
-
-
 print(borz)
+
+borz_name = input('Имя Автора: ')
+
+borz2 = session.query(Book.title, Shop.name, Stock.count, Sale.date_sale).join(Publisher).join(Stock).join(Shop).join(Sale).filter(Publisher.name == borz_name).all()
+
+
+print(borz2)
 
 session.close()
